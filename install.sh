@@ -12,21 +12,24 @@ echo -n "Enter your choice: "
 read choice
 
 arch_path="./arch/install.sh"
-popos_path="./pop-os/install.sh"
-endeavouros_path="./endeavour-os/install.sh"
+popos_path="./popos/install.sh"
+endeavouros_path="./endeavouros/install.sh"
 
 case $choice in
     1)
         echo "Starting to Arch configuration..."
-        bash "$arch_path"
+        cd ./arch
+        bash ./install.sh
         ;;
     2)
         echo "Starting to Pop_OS configuration..."
-        bash "$popos_path"
+        cd ./popos
+        bash ./install.sh
         ;;
     3)
         echo "Starting to EndeavourOS configuration..."
-        bash "$endeavouros_path"
+        cd ./endeavouros
+        bash ./install.sh
         ;;
     *)
         echo "Invalid choice. Exiting."

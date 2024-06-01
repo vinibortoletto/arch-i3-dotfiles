@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-source ./.functions.sh
 
 # set pacman config
-sudo cp pacman.conf /etc/
+sudo cp ./pacman.conf /etc/
 
 # install yay
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+sudo pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 
 # install apps
 yay -S --noconfirm --needed \
@@ -42,7 +41,9 @@ yay -S --noconfirm --needed \
 	ttf-hack-nerd \
 	nemo \
 	lxappearance \
-	github-cli
+	github-cli \
+	mpv \
+	dunst
 
 # enable kdeconnect in firewall
 sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
@@ -50,15 +51,23 @@ sudo firewall-cmd --reload
 
 # bluetooth configuration
 sudo systemctl enable bluetooth
-cp policy-bluetooth ~/home/vini/.local/state/wireplumber/policy-bluetooth
+cp policy-bluetooth $HOME/.local/state/wireplumber
 
 # other configuration
+
+notify-send 'other configuration'
+
 sudo cp environment /etc/environment
 cp -r .screenlayout ~/
 cp -r .config ~/
 cp -r .themes ~/
 cp -r icons ~/.local/share
+
+mkdir ~/Pictures
 cp -r backgrounds ~/Pictures
+
+notify-send 'end other configuration'
+
 
 # enable natural scroll
 sudo cp 40-libinput.conf /usr/share/X11/xorg.conf.d
