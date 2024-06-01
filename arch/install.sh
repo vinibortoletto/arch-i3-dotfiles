@@ -41,7 +41,8 @@ yay -S --noconfirm --needed \
 	ttf-meslo-nerd-font-powerlevel10k \
 	ttf-hack-nerd \
 	nemo \
-	lxappearance
+	lxappearance \
+	github-cli
 
 # enable kdeconnect in firewall
 sudo firewall-cmd --permanent --zone=public --add-service=kdeconnect
@@ -66,3 +67,8 @@ sudo cp 40-libinput.conf /usr/share/X11/xorg.conf.d
 # sudo cp blacklist-nouveau.conf /etc/modprobe.d/
 # sudo cp 20-intel.conf /etc/X11/xorg.conf.d/
 # sudo dracut -f
+
+# git configuration
+git config --global user.email "ovinibortoletto@gmail.com"
+git config --global user.name "Vinicius Bortoletto"
+gh auth login
