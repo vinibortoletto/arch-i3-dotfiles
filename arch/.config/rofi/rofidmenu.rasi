@@ -1,0 +1,140 @@
+/*******************************************************
+ * ROFI configs i3 Apps menu for EndeavourOS
+ * Maintainer: joekamprad [joekamprad //a_t// endeavouros.com]
+ *******************************************************/
+configuration {
+    font:                "Noto Sans Regular 14";
+    show-icons:          true;
+    icon-theme:          "Qogir";
+    display-drun:        "Apps";
+    drun-display-format: "{name}";
+    scroll-method:       0;
+    disable-history:     false;
+    sidebar-mode:        false;
+}
+
+@import "~/.config/rofi/nord_colors.rasi"
+
+window {
+    background-color: @grey-1;
+    border:           0;
+    padding:          30;
+}
+listview {
+    lines:   2;
+    columns: 3;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
+message {
+    border:       2px 0px 0px;
+    border-color: @grey-2;
+    padding:      1px;
+}
+textbox {
+    text-color: @grey-1;
+}
+listview {
+    fixed-height: 0;
+    border:       3px 0px 0px;
+    border-color: @grey-2;
+    spacing:      8px;
+    scrollbar:    false;
+    padding:      10px 0px 0px;
+}
+element {
+    border:  0;
+    padding: 20px;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+}
+element.normal.normal {
+    background-color: @grey-1;
+    text-color:       @white-1;
+    border: 1px;
+    border-color: @grey-2;
+}
+element.normal.urgent {
+    background-color: @red;
+    text-color:       @red;
+}
+element.normal.active {
+    background-color: @red;
+    text-color:       @red;
+}
+element.selected.normal {
+    background-color: @grey-4;
+    text-color:       @white-1;
+}
+element.selected.urgent {
+    background-color: @red;
+    text-color:       @red;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    background-color: @grey-1;
+    text-color:       @white-1;
+    border: 1px;
+    border-color: @grey-2;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @alternate-active-background;
+    text-color:       @alternate-active-foreground;
+}
+scrollbar {
+    width:        4px;
+    border:       0;
+    handle-color: @normal-foreground;
+    handle-width: 8px;
+    padding:      0;
+}
+mode-switcher {
+    border:       2px 0px 0px;
+    border-color: @separatorcolor;
+}
+button {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+button.selected {
+    background-color: @selected-normal-background;
+    text-color:       @selected-normal-foreground;
+}
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    10px;
+    background-color: @grey-2;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+prompt {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em;
+    text-color: @normal-foreground;
+}

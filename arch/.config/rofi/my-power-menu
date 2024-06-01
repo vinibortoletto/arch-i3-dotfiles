@@ -1,0 +1,15 @@
+#!/bin/bash
+
+options="Shutdown\nReboot\nLogout\nLock"
+choice=$(echo -e "$options" | rofi -dmenu -p "Power Menu" -i -config ~/.config/rofi/rofidmenu.rasi)
+
+if [[ "$choice" == "Lock" ]]; then
+  ~/.config/i3/scripts/blur-lock
+elif [[ "$choice" == "Shutdown" ]]; then
+  poweroff
+elif [[ "$choice" == "Reboot" ]]; then
+  reboot
+elif [[ "$choice" == "Logout" ]]; then
+  # loginctl terminate-session ${XDG_SESSION_ID-}
+  i3-msg exit
+fi
